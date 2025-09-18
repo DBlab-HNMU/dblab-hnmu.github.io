@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBlab - Research Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="search.js"></script>
+    <style>
+        :root {
+            --c1: #0f3871;
+            /* 深主色 */
+            --c2: #2c5282;
+            /* 主色 */
+            --c3: #4299e1;
+            /* 浅主色 */
+            --h1: #4a4a4a; 
+            /* 再浅一点的黑色 */
+            --h2: #0f0f0f; 
+            /* 统一文本色 - 更深的黑色 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #ffffff;
+            color: var(--c1);
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 顶部导航区域 */
+        .header {
+            background-color: #ffffff;
+            padding: 32px 0 8px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: none;
+            width: 960px;
+            margin: 0 auto;
+            border-radius: 0;
+        }
+
+        .header-container {
+            width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .header-row1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--c3);
+            flex: 0 0 auto;
+        }
+
+        .logo-link {
+            color: var(--c1);
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 0.03em;
+            font-family: inherit;
+            transition: none;
+        }
+
+        .logo-link:hover {
+            color: var(--c1);
+            text-decoration: none;
+        }
+
+        .logo-text {
+            color: var(--c1);
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 0.03em;
+            font-family: inherit;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1 1 auto;
+            gap: 0;
+        }
+
+        .nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--c2);
+            font-size: 14px;
+            font-weight: bold;
+            padding: 7px 16px;
+            border-radius: 4px;
+            transition: none;
+            font-family: inherit;
+            letter-spacing: 0.01em;
+            position: relative;
+        }
+
+        .nav a:first-child {
+            margin-left: 0;
+        }
+
+        .nav a:hover {
+            background-color: transparent;
+            color: var(--c2);
+        }
+
+        .nav a.active {
+            color: var(--c1);
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--c1);
+            border-radius: 2px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            margin-left: 0;
+            flex: 0 0 auto;
+        }
+
+        .search-box input {
+            padding: 8px 16px;
+            border: 1px solid #bfc9d1;
+            border-radius: 4px 0 0 4px;
+            width: 160px;
+            font-size: 14px;
+            background: #f5f7fa;
+            font-family: inherit;
+            transition: border 0.2s;
+            height: 30px;
+            box-sizing: border-box;
+        }
+
+        .search-box input:focus {
+            border-color: var(--c1);
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 0 24px;
+            background-color: var(--c1);
+            color: #fff;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s;
+            height: 30px;
+            box-sizing: border-box;
+            line-height: 30px;
+            display: inline-block;
+        }
+
+        .search-box button:hover {
+            background-color: var(--c2);
+        }
+
+        .main-content {
+            width: 960px;
+            margin: 16px auto;
+            background-color: #fafbfc;
+            min-height: 0;
+            padding: 25px;
+            border: 1px solid #bfc9d1;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-family: inherit;
+            flex: none;
+        }
+
+        /* 人员页面样式 - 紧凑居中布局 */
+        .people-section h1 {
+            font-size: 20px;
+            color: var(--h1);
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .people-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .person-item {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .person-photo {
+            width: 150px;
+            height: 150px;
+            border: 2px solid var(--c3);
+            margin: 0 auto 10px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .person-name {
+            font-size: 16px;
+            color: var(--h2);
+            margin-bottom: 2px;
+        }
+
+        .person-name-cn {
+            font-size: 14px;
+            color: var(--c1);
+        }
+
+        .students-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* 蔡佳乐单独一排 */
+        .first-student {
+            margin-bottom: 30px;
+        }
+
+        .first-student .person-item {
+            margin: 0 auto;
+        }
+
+        /* 后面四个学生一排 */
+        .students-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* 优化图片边框和阴影 */
+        .person-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            background: #fff;
+            padding: 3px;
+        }
+
+        .person-photo:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            transform: translateY(-3px);
+            border-color: var(--c3);
+        }
+
+        /* 底部区域 */
+        .footer {
+            background-color: var(--c1);
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+            width: 960px;
+            margin: 0 auto;
+            border-radius: 0;
+            font-family: inherit;
+        }
+
+        .footer-container {
+            width: 960px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 0;
+        }
+
+        .contact-info {
+            margin-bottom: 0;
+            font-size: 15px;
+            color: #bfc9d1;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #bfc9d1;
+            border-top: 1px solid var(--c2);
+            padding-top: 5px;
+            width: 100%;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部导航区域 -->
+    <header class="header">
+        <div class="header-container">
+            <!-- 第一行：logo、导航、搜索框、语言切换 -->
+            <div class="header-row1">
+                <div class="logo">
+                    <span class="logo-text">DBlab</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="research.html">Research</a>
+                    <a href="people.html">People</a>
+                    <a href="publications.html">Publications</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button>Go</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 中间内容区域 -->
+    <main class="main-content">
+        <div class="people-section">
+            
+            <!-- 第一排：并排居中的主要研究人员 -->
+            <div class="people-container">
+                <div class="person-item">
+                    <img src="image/people1.JPG" alt="Deng Wu" class="person-photo">
+                    <div class="person-info">
+                        <div class="name">Deng Wu（吴邓）</div>
+                        <div class="role">Investigator</div>
+                    </div>
+                </div>
+                
+                <div class="person-item">
+                    <img src="image/people2.JPG" alt="Xiaoman Bi" class="person-photo">
+                    <div class="person-info">
+                        <div class="name">Xiaoman Bi（毕小慢）</div>
+                        <div class="role">Co-Investigator</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 学生部分 -->
+            <div class="students-section">
+                
+                <!-- 蔡佳乐单独一排 -->
+                <div class="first-student">
+                    <div class="person-item">
+                        <img src="image/people3.JPG" alt="Jiale Cai" class="person-photo">
+                        <div class="person-info">
+                            <div class="name">Jiale Cai（蔡佳乐）</div>
+                            <div class="role">Joint Ph.D. Student</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 后面四个学生一排 -->
+                <div class="students-row">
+                    <div class="person-item">
+                        <img src="image/people4.JPG" alt="Riyang Xing" class="person-photo">
+                        <div class="person-info">
+                            <div class="name">Riyang Xing（邢日炀）</div>
+                            <div class="role">Graduate Student</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-item">
+                        <img src="image/people5.JPG" alt="Kexin Yang" class="person-photo">
+                        <div class="person-info">
+                            <div class="name">Kexin Yang（杨柯昕）</div>
+                            <div class="role">Master Student</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-item">
+                        <img src="image/people6.JPG" alt="Liqi Chen" class="person-photo">
+                        <div class="person-info">
+                            <div class="name">Liqi Chen（陈立奇）</div>
+                            <div class="role">Master Student</div>
+                        </div>
+                    </div>
+                    
+                    <div class="person-item">
+                        <img src="image/people7.JPG" alt="Qiwen Wu" class="person-photo">
+                        <div class="person-info">
+                            <div class="name">Qiwen Wu（吴绮雯）</div>
+                            <div class="role">Master Student</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部区域 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">DBlab</div>
+            <div class="copyright">
+                <p>© 2025 DBlab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 设置当前页面导航激活状态
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav a');
+
+            navLinks.forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (currentPage === linkPage ||
+                    (currentPage === '' && linkPage === 'index.html') ||
+                    (currentPage === 'index.html' && linkPage === 'index.html')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
