@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +67,7 @@
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             color: var(--c3);
             flex: 0 0 auto;
@@ -75,7 +76,7 @@
         .logo-link {
             color: var(--c1);
             text-decoration: none;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             letter-spacing: 0.03em;
             font-family: inherit;
@@ -89,7 +90,7 @@
 
         .logo-text {
             color: var(--c1);
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             letter-spacing: 0.03em;
             font-family: inherit;
@@ -104,10 +105,10 @@
         }
 
         .nav a {
-            margin-left: 20px;
+            margin-left: 15px;
             text-decoration: none;
             color: var(--c2);
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
             padding: 7px 16px;
             border-radius: 4px;
@@ -153,7 +154,7 @@
             border: 1px solid #bfc9d1;
             border-radius: 4px 0 0 4px;
             width: 160px;
-            font-size: 14px;
+            font-size: 16px;
             background: #f5f7fa;
             font-family: inherit;
             transition: border 0.2s;
@@ -174,7 +175,7 @@
             border-radius: 0 4px 4px 0;
             cursor: pointer;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 16px;
             transition: background 0.2s;
             height: 30px;
             box-sizing: border-box;
@@ -258,7 +259,7 @@
         .year-nav {
             text-align: center;
             margin-bottom: 20px;
-            font-size: 16px;
+            font-size: 18px;
             color: var(--h2);
             font-weight: normal;
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -273,6 +274,7 @@
             cursor: pointer;
             transition: color 0.3s ease;
             font-weight: bold;
+            font-size: 18px;
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
             background: none;
         }
@@ -289,11 +291,10 @@
 
         .year-section {
             margin-bottom: 40px;
-            display: none;
         }
 
-        .year-section.active {
-            display: block;
+        .year-section.hidden {
+            display: none;
         }
 
         .year-title {
@@ -310,7 +311,7 @@
         }
 
         .paper-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             margin-bottom: 8px;
             color: #0f0f0f;
@@ -329,7 +330,7 @@
         }
 
         .paper-authors {
-            font-size: 16px;
+            font-size: 18px;
             color: #0f0f0f;
             margin-bottom: 5px;
             line-height: 1.6;
@@ -343,7 +344,7 @@
         }
 
         .paper-journal {
-            font-size: 16px;
+            font-size: 18px;
             color: #0f0f0f;
             font-weight: normal;
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -354,14 +355,14 @@
         }
 
         .section-title {
-            font-size: 20px;
+            font-size: 24px;
             color: var(--h1);
             margin-bottom: 20px;
             font-weight: 700;
         }
 
         .legend {
-            font-size: 17px;
+            font-size: 18px;
             color: var(--h1);
             text-align: left;
             font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -402,8 +403,9 @@
             <h1 class="section-title">Selected papers</h1>
             
             <div class="year-nav">
-                <span style="color: var(--h2); font-weight: bold; font-size: 16px; font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">By year:</span>
-                <a href="#" class="year-link active" data-year="2025">2025</a> |
+                <span style="color: var(--h2); font-weight: bold; font-size: 18px; font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;">By year:</span>
+                <a href="#" class="year-link active" data-year="all">All</a> |
+                <a href="#" class="year-link" data-year="2025">2025</a> |
                 <a href="#" class="year-link" data-year="2024">2024</a> |
                 <a href="#" class="year-link" data-year="2023">2023</a> |
                 <a href="#" class="year-link" data-year="2022">2022</a>
@@ -416,7 +418,7 @@
             <br>
 
             <!-- 2025年论文 -->
-            <div class="year-section active" id="year-2025">
+            <div class="year-section" id="year-2025">
                 <div class="paper-item">
                     <div class="paper-title">
                         <a href="https://onlinelibrary.wiley.com/doi/10.1111/cas.70178" target="_blank">Integrative Transcriptomic Analysis Decodes the Interplay Between Aging, Senescence, and Cancer</a>
@@ -529,10 +531,10 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const yearLinks = document.querySelectorAll('.year-link');
                 const yearSections = document.querySelectorAll('.year-section');
-
-                // 默认显示2025年
-                showYear('2025');
-
+        
+                // 默认显示所有年份
+                showYear('all');
+        
                 yearLinks.forEach(link => {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -540,28 +542,34 @@
                         showYear(year);
                     });
                 });
-
+        
                 function showYear(year) {
-                    // 隐藏所有年份内容
-                    yearSections.forEach(section => {
-                        section.classList.remove('active');
-                    });
-
                     // 移除所有激活状态
                     yearLinks.forEach(link => {
                         link.classList.remove('active');
                     });
-
-                    // 显示选中年份内容
-                    const targetSection = document.getElementById(`year-${year}`);
-                    if (targetSection) {
-                        targetSection.classList.add('active');
-                    }
-
+        
                     // 设置对应链接为激活状态
                     const targetLink = document.querySelector(`[data-year="${year}"]`);
                     if (targetLink) {
                         targetLink.classList.add('active');
+                    }
+        
+                    // 处理显示逻辑
+                    if (year === 'all') {
+                        // 显示所有年份
+                        yearSections.forEach(section => {
+                            section.classList.remove('hidden');
+                        });
+                    } else {
+                        // 显示选中年份，隐藏其他年份
+                        yearSections.forEach(section => {
+                            if (section.id === `year-${year}`) {
+                                section.classList.remove('hidden');
+                            } else {
+                                section.classList.add('hidden');
+                            }
+                        });
                     }
                 }
             });
@@ -583,7 +591,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.nav a');
-
+        
             navLinks.forEach(link => {
                 const linkPage = link.getAttribute('href');
                 if (currentPage === linkPage ||

@@ -9,16 +9,14 @@
     <script src="search.js"></script>
     <style>
         :root {
-            --c1: #0f3871;
-            /* 深主色 */
-            --c2: #2c5282;
-            /* 主色 */
-            --c3: #4299e1;
-            /* 浅主色 */
-            --h1: #4a4a4a; 
-            /* 再浅一点的黑色 */
-            --h2: #0f0f0f; 
-            /* 统一文本色 - 更深的黑色 */
+            --c1: #0f3871; /* 深主色 */
+            --c2: #2c5282; /* 主色 */
+            --c3: #4299e1; /* 浅主色 */
+            --h1: #4a4a4a; /* 再浅一点的黑色 */
+            --h2: #0f0f0f; /* 统一文本色 - 更深的黑色 */
+            --bg-light: #ffffff; /* 浅色背景 */
+            --border-color: #e0e7ff; /* 边框颜色 */
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* 轻微阴影 */
         }
 
         * {
@@ -69,7 +67,7 @@
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             color: var(--c3);
             flex: 0 0 auto;
@@ -78,7 +76,7 @@
         .logo-link {
             color: var(--c1);
             text-decoration: none;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             letter-spacing: 0.03em;
             font-family: inherit;
@@ -92,7 +90,7 @@
 
         .logo-text {
             color: var(--c1);
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             letter-spacing: 0.03em;
             font-family: inherit;
@@ -107,10 +105,10 @@
         }
 
         .nav a {
-            margin-left: 20px;
+            margin-left: 15px;
             text-decoration: none;
             color: var(--c2);
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
             padding: 7px 16px;
             border-radius: 4px;
@@ -156,7 +154,7 @@
             border: 1px solid #bfc9d1;
             border-radius: 4px 0 0 4px;
             width: 160px;
-            font-size: 14px;
+            font-size: 16px;
             background: #f5f7fa;
             font-family: inherit;
             transition: border 0.2s;
@@ -177,7 +175,7 @@
             border-radius: 0 4px 4px 0;
             cursor: pointer;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 16px;
             transition: background 0.2s;
             height: 30px;
             box-sizing: border-box;
@@ -202,91 +200,113 @@
             flex: none;
         }
 
-        /* 人员页面样式 - 紧凑居中布局 */
+        /* 人员页面样式 */
         .people-section h1 {
-            font-size: 20px;
+            font-size: 24px;
             color: var(--h1);
             margin-bottom: 30px;
             font-weight: 700;
             text-align: center;
         }
 
+        /* 人员容器 */
         .people-container {
             display: flex;
-            justify-content: center;
-            gap: 60px;
+            flex-direction: column;
+            gap: 25px;
             margin-bottom: 40px;
-            flex-wrap: wrap;
         }
 
-        .person-item {
-            text-align: center;
-            max-width: 200px;
-        }
-
-        .person-photo {
-            width: 150px;
-            height: 150px;
-            border: 2px solid var(--c3);
-            margin: 0 auto 10px;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .person-name {
-            font-size: 16px;
-            color: var(--h2);
-            margin-bottom: 2px;
-        }
-
-        .person-name-cn {
-            font-size: 14px;
-            color: var(--c1);
-        }
-
-        .students-section {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        /* 蔡佳乐单独一排 */
-        .first-student {
-            margin-bottom: 30px;
-        }
-
-        .first-student .person-item {
-            margin: 0 auto;
-        }
-
-        /* 后面四个学生一排 */
-        .students-row {
+        /* 团队成员容器 */
+        .team-members {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+        
+        /* 分块样式 - 移除白色块效果 */
+        .person-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
         }
 
-        /* 优化图片边框和阴影 */
+        .person-item:hover {
+            transform: none;
+        }
+
+        /* 照片区域 */
+        .person-photo-container {
+            flex: 0 0 auto;
+        }
+
+        /* 圆框照片 - 放大尺寸 */
         .person-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 8px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
             object-fit: cover;
-            border: 1px solid #e0e0e0;
+            border: 3px solid white;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
             background: #fff;
-            padding: 3px;
         }
 
         .person-photo:hover {
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-            transform: translateY(-3px);
-            border-color: var(--c3);
+            transform: scale(1.03);
+            border-color: var(--c2);
         }
 
+        /* 信息区域 - 居中 */
+        .person-info {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .person-name {
+            font-size: 18px;
+            color: var(--h2);
+            margin-bottom: 8px;
+        }
+
+        .person-role {
+            font-size: 17px;
+            color: var(--c2);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        /* 团队标题 - 无下划线 */
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--h1);
+            margin-bottom: 20px;
+            padding-bottom: 0;
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* 首个团队标题移除顶部间距 */
+        .team-group:first-child .section-title {
+            margin-top: 0;
+        }
+
+        /* 团队分组容器 */
+        .team-group {
+            margin-bottom: 40px;
+        }
+        
+        /* 最后一个团队分组移除底部间距 */
+        .team-group:last-child {
+            margin-bottom: 0;
+        }
+        
         /* 底部区域 */
         .footer {
             background-color: var(--c1);
@@ -358,9 +378,9 @@
                     <span class="logo-text">DBlab</span>
                 </div>
                 <nav class="nav">
-                    <a href="index.html" class="active">Home</a>
+                    <a href="index.html">Home</a>
                     <a href="research.html">Research</a>
-                    <a href="people.html">People</a>
+                    <a href="people.html" class="active">People</a>
                     <a href="publications.html">Publications</a>
                     <a href="contact.html">Contact</a>
                 </nav>
@@ -375,71 +395,92 @@
     <!-- 中间内容区域 -->
     <main class="main-content">
         <div class="people-section">
-            
-            <!-- 第一排：并排居中的主要研究人员 -->
-            <div class="people-container">
-                <div class="person-item">
-                    <img src="image/people1.JPG" alt="Deng Wu" class="person-photo">
-                    <div class="person-info">
-                        <div class="name">Deng Wu（吴邓）</div>
-                        <div class="role">Investigator</div>
-                    </div>
-                </div>
-                
-                <div class="person-item">
-                    <img src="image/people2.JPG" alt="Xiaoman Bi" class="person-photo">
-                    <div class="person-info">
-                        <div class="name">Xiaoman Bi（毕小慢）</div>
-                        <div class="role">Co-Investigator</div>
+            <!-- Principal Investigator -->
+            <div class="team-group">
+                <h1 class="lab-news section-title">Principal Investigator</h1>
+                <div class="team-members">
+                    <div class="person-item">
+                        <div class="person-photo-container">
+                            <img src="image/people1.JPG" alt="Deng Wu" class="person-photo">
+                        </div>
+                        <div class="person-info">
+                            <div class="person-name">Deng Wu（吴邓）</div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <!-- 学生部分 -->
-            <div class="students-section">
-                
-                <!-- 蔡佳乐单独一排 -->
-                <div class="first-student">
+            <!-- Co-Principal Investigator -->
+            <div class="team-group">
+                <div class="section-title">Co-Principal Investigator</div>
+                <div class="team-members">
                     <div class="person-item">
-                        <img src="image/people3.JPG" alt="Jiale Cai" class="person-photo">
+                        <div class="person-photo-container">
+                            <img src="image/people2.JPG" alt="Xiaoman Bi" class="person-photo">
+                        </div>
                         <div class="person-info">
-                            <div class="name">Jiale Cai（蔡佳乐）</div>
-                            <div class="role">Joint Ph.D. Student</div>
+                            <div class="person-name">Xiaoman Bi（毕小慢）</div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- 后面四个学生一排 -->
-                <div class="students-row">
+            </div>
+            
+            <!-- Graduate Students -->
+            <div class="team-group">
+                <div class="section-title">Graduate Students</div>
+                <div class="team-members">
+                    <!-- Jiale Cai -->
                     <div class="person-item">
-                        <img src="image/people4.JPG" alt="Riyang Xing" class="person-photo">
+                        <div class="person-photo-container">
+                            <img src="image/people3.JPG" alt="Jiale Cai" class="person-photo">
+                        </div>
                         <div class="person-info">
-                            <div class="name">Riyang Xing（邢日炀）</div>
-                            <div class="role">Graduate Student</div>
+                            <div class="person-name">Jiale Cai（蔡佳乐）</div>
+                            <div class="person-role">Joint Ph.D. Student</div>
                         </div>
                     </div>
                     
+                    <!-- Riyang Xing -->
                     <div class="person-item">
-                        <img src="image/people5.JPG" alt="Kexin Yang" class="person-photo">
+                        <div class="person-photo-container">
+                            <img src="image/people4.jpg" alt="Riyang Xing" class="person-photo">
+                        </div>
                         <div class="person-info">
-                            <div class="name">Kexin Yang（杨柯昕）</div>
-                            <div class="role">Master Student</div>
+                            <div class="person-name">Riyang Xing（邢日炀）</div>
+                            <div class="person-role">Master Student</div>
                         </div>
                     </div>
                     
+                    <!-- Kexin Yang -->
                     <div class="person-item">
-                        <img src="image/people6.JPG" alt="Liqi Chen" class="person-photo">
+                        <div class="person-photo-container">
+                            <img src="image/people5.jpg" alt="Kexin Yang" class="person-photo">
+                        </div>
                         <div class="person-info">
-                            <div class="name">Liqi Chen（陈立奇）</div>
-                            <div class="role">Master Student</div>
+                            <div class="person-name">Kexin Yang（杨柯昕）</div>
+                            <div class="person-role">Master Student</div>
                         </div>
                     </div>
                     
+                    <!-- Liqi Chen -->
                     <div class="person-item">
-                        <img src="image/people7.JPG" alt="Qiwen Wu" class="person-photo">
+                        <div class="person-photo-container">
+                            <img src="image/people6.JPG" alt="Liqi Chen" class="person-photo">
+                        </div>
                         <div class="person-info">
-                            <div class="name">Qiwen Wu（吴绮雯）</div>
-                            <div class="role">Master Student</div>
+                            <div class="person-name">Liqi Chen（陈立奇）</div>
+                            <div class="person-role">Master Student</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Qiwen Wu -->
+                    <div class="person-item">
+                        <div class="person-photo-container">
+                            <img src="image/people7.JPG" alt="Qiwen Wu" class="person-photo">
+                        </div>
+                        <div class="person-info">
+                            <div class="person-name">Qiwen Wu（吴绮雯）</div>
+                            <div class="person-role">Master Student</div>
                         </div>
                     </div>
                 </div>
