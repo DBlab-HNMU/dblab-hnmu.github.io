@@ -1,0 +1,987 @@
+/* 统一的CSS样式文件 */
+
+/* CSS变量定义 */
+:root {
+    --c1: #0f3871; /* 深主色 */
+    --c2: #2c5282; /* 主色 */
+    --c3: #1472c0; /* 浅主色 */
+    --h1: #4a4a4a; /* 再浅一点的黑色 */
+    --h2: #0f0f0f; /* 统一文本色 - 更深的黑色 */
+    --bg-light: #ffffff; /* 浅色背景 */
+    --border-color: #e0e7ff; /* 边框颜色 */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* 轻微阴影 */
+}
+
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全局样式 */
+body {
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background-color: #ffffff;
+    color: var(--c1);
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400; /* 设置默认字体粗细为常规 */
+}
+
+/* 顶部导航区域 */
+.header {
+    background-color: #ffffff;
+    padding: 32px 0 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: none;
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 0;
+}
+
+.header-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.header-row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+    color: var(--c3);
+    flex: 0 0 auto;
+}
+
+.logo-link {
+    color: var(--c1);
+    text-decoration: none;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    font-family: inherit;
+    transition: none;
+}
+
+.logo-link:hover {
+    color: var(--c1);
+    text-decoration: none;
+}
+
+.logo-text {
+    color: var(--c1);
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+    font-family: inherit;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    gap: 0;
+}
+
+.nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: var(--c2);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 7px 16px;
+    border-radius: 4px;
+    transition: none;
+    font-family: inherit;
+    letter-spacing: 0.01em;
+    position: relative;
+}
+
+.nav a:first-child {
+    margin-left: 0;
+}
+
+.nav a:hover {
+    background-color: transparent;
+    color: var(--c2);
+    text-decoration: none;
+}
+
+.nav a.active {
+    color: var(--c1);
+}
+
+.nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--c1);
+    border-radius: 2px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+    flex: 0 0 auto;
+}
+
+.search-box input {
+    padding: 8px 16px;
+    border: 1px solid #bfc9d1;
+    border-radius: 4px 0 0 4px;
+    width: 160px;
+    font-size: 18px;
+    background: #f5f7fa;
+    font-family: inherit;
+    transition: border 0.2s;
+    height: 30px;
+    box-sizing: border-box;
+}
+
+.search-box input:focus {
+    border-color: var(--c1);
+    outline: none;
+}
+
+.search-box button {
+    padding: 0 24px;
+    background-color: var(--c1);
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background 0.2s;
+    height: 30px;
+    box-sizing: border-box;
+    line-height: 30px;
+    display: inline-block;
+}
+
+.search-box button:hover {
+    background-color: var(--c2);
+}
+
+/* 第二行：标语 */
+.header-row2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.slogan {
+    font-size: 16px;
+    color: #414043c8;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-family: inherit;
+    text-align: left;
+    flex: 1 1 auto;
+}
+
+/* 主内容区域 */
+.main-content {
+    width: 75%;
+    margin: 16px auto;
+    background-color: #fafbfc;
+    min-height: 0;
+    padding: 25px;
+    border: 1px solid #bfc9d1;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-family: inherit;
+    flex: 1;
+}
+
+/* 通用内容占位样式 */
+.content-placeholder {
+    text-align: center;
+    padding: 40px;
+    color: var(--c2);
+}
+
+.content-placeholder h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--c1);
+    font-weight: 700;
+}
+
+.content-placeholder p {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.dimension-info {
+    background: #f5f7fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(9, 31, 70, 0.06);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.dimension-info h3 {
+    margin-bottom: 15px;
+    color: var(--c2);
+    font-weight: 600;
+}
+
+.dimension-info ul {
+    text-align: left;
+    margin-left: 30px;
+}
+
+.dimension-info li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+/* 底部区域 */
+.footer {
+    background-color: var(--c1);
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 0;
+    font-family: inherit;
+}
+
+.footer-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.footer-logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 0;
+}
+
+.contact-info {
+    margin-bottom: 0;
+    font-size: 15px;
+    color: #bfc9d1;
+}
+
+.copyright {
+    font-size: 13px;
+    color: #bfc9d1;
+    border-top: 1px solid var(--c2);
+    padding-top: 5px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* 首页特定样式 */
+.lab-news {
+    margin-bottom: 40px;
+}
+
+.lab-news h1 {
+    font-size: 24px;
+    color: var(--h1);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.news-item {
+    margin-bottom: 40px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: #0f0f0f;
+}
+
+.news-date {
+    font-size: 18px;
+    color: #0f0f0f;
+    font-weight: normal;
+    margin-bottom: 0;
+    display: inline;
+}
+
+.news-content {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #0f0f0f;
+    margin-bottom: 10px;
+}
+
+.news-link {
+    color: var(--c3);
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.news-link:hover {
+    text-decoration: underline;
+}
+
+.news-image {
+    display: block;
+    margin: 15px auto 20px auto;
+    width: 75%;
+    max-width: none;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+/* 联系页面特定样式 */
+.contact-section {
+    padding: 0 0 20px 0;
+}
+
+/* Contact Us标题样式 */
+.contact-section h1 {
+    font-size: 24px;
+    color: var(--h1);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* 联系人卡片样式 */
+.contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background-color: var(--c3);
+    border-radius: 2px;
+}
+
+.contact-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--c1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.contact-info {
+    text-align: left;
+}
+
+.contact-card:hover {
+    transform: translateY(-2px);
+}
+
+/* 联系人姓名样式 */
+.contact-card h2 {
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--h2);
+    margin-bottom: 10px;
+}
+
+/* 联系人邮箱样式 */
+.contact-card p {
+    font-size: 18px;
+    color: var(--h2);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 备用SVG图标样式 */
+.avatar-fallback {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--c1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+/* 备用SVG图标 */
+.avatar-svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+/* 人员页面特定样式 */
+.people-section h1 {
+    font-size: 24px;
+    color: var(--h1);
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* 人员容器 */
+.people-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* 团队成员容器 */
+.team-members {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Graduate Students部分的特殊布局 - 两排显示 */
+.team-group:nth-child(3) .team-members {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* Graduate Students的前两个成员（第一排） */
+.team-group:nth-child(3) .team-members .person-item:nth-child(-n+2) {
+    width: calc(50% - 8px);
+    margin-bottom: 15px;
+}
+
+/* Graduate Students的后三个成员（第二排） */
+.team-group:nth-child(3) .team-members .person-item:nth-child(n+3) {
+    width: calc(33.333% - 10px);
+}
+
+/* 确保每一行都居中对齐 */
+.team-group:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 分块样式 */
+.person-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.person-item:hover {
+    transform: none;
+}
+
+/* 照片区域 */
+.person-photo-container {
+    flex: 0 0 auto;
+}
+
+/* 圆框照片 */
+.person-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.person-photo:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    transform: scale(1.03);
+}
+
+/* 信息区域 */
+.person-info {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.person-name {
+    font-size: 18px;
+    color: var(--h2);
+    margin-bottom: 8px;
+}
+
+.person-role {
+    font-size: 17px;
+    color: var(--c2);
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+/* 统一的标题样式 - 适用于所有h1和.section-title */
+.section-title, h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--h1);
+    margin-bottom: 30px;
+    padding-bottom: 0;
+    width: 100%;
+    text-align: left;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* Graduate Students标题的特殊样式 - 增加下方间距 */
+.team-group:nth-child(3) .section-title {
+    margin-bottom: 35px;
+}
+
+/* 人员页面的标题样式保持一致但位置居中 */
+.people-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 团队分组容器 */
+.team-group {
+    margin-bottom: 40px;
+}
+
+/* 最后一个团队分组移除底部间距 */
+.team-group:last-child {
+    margin-bottom: 0;
+}
+
+/* 出版物页面特定样式 */
+/* 交互样式 */
+.year-nav {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: var(--h2);
+    font-weight: normal;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.year-nav a {
+    color: var(--c3);
+    text-decoration: none;
+    margin: 0 8px;
+    padding: 0;
+    border-radius: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: none;
+}
+
+.year-nav a.active {
+    color: var(--h2);
+    font-weight: bold;
+}
+
+.year-nav a:hover {
+    color: var(--h2);
+    background: none;
+}
+
+.year-section {
+    margin-bottom: 40px;
+}
+
+.year-section.hidden {
+    display: none;
+}
+
+.year-title {
+    display: none;
+}
+
+.paper-item {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #0f0f0f;
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.paper-title {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 1px;
+    color: #0f0f0f;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.paper-title a {
+    color: var(--c3);
+    text-decoration: none;
+    font-weight: 400;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.paper-title a:hover {
+    text-decoration: underline;
+}
+
+
+.paper-authors {
+    font-size: 18px;
+    color: #0f0f0f;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.paper-authors strong {
+    font-weight: 500;
+}
+
+.paper-journal {
+    font-size: 18px;
+    color: #0f0f0f;
+    line-height: 1.5;
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    margin-bottom: 1px;
+}
+
+.paper-journal strong {
+    font-weight: 500;
+}
+
+.legend {
+    font-size: 18px;
+    color: var(--h1);
+    text-align: left;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 响应式设计 - 媒体查询 */
+
+/* 平板设备 (768px 到 1024px) */
+@media (max-width: 1024px) {
+    /* 调整布局宽度 */
+    .header, .main-content, .footer {
+        width: 90%;
+    }
+    
+    /* 减小字体大小 */
+    .logo, .logo-link, .logo-text {
+        font-size: 30px;
+    }
+    
+    .nav a {
+        font-size: 16px;
+        padding: 5px 12px;
+    }
+    
+    .search-box input, .search-box button {
+        font-size: 16px;
+    }
+    
+    .slogan {
+        font-size: 15px;
+    }
+    
+    .section-title, h1 {
+        font-size: 22px;
+    }
+    
+    .news-date, .news-content {
+        font-size: 16px;
+    }
+    
+    .person-name, .person-role, .paper-title, .paper-authors, .paper-journal, .year-nav a {
+        font-size: 16px;
+    }
+    
+    /* 调整人员页面布局 */
+    .team-group:nth-child(3) .team-members {
+        gap: 12px;
+    }
+    
+    .team-group:nth-child(3) .team-members .person-item:nth-child(-n+2) {
+        width: calc(50% - 6px);
+    }
+    
+    .team-group:nth-child(3) .team-members .person-item:nth-child(n+3) {
+        width: calc(33.333% - 8px);
+    }
+}
+
+/* 移动设备 (小于 768px) */
+@media (max-width: 768px) {
+    /* 调整布局宽度为全屏 */
+    .header, .main-content, .footer {
+        width: 100%;
+        border-radius: 0;
+    }
+    
+    /* 调整内边距 */
+    .main-content {
+        padding: 15px;
+        border-left: none;
+        border-right: none;
+    }
+    
+    /* 调整头部布局 */
+    .header {
+        padding: 20px 15px 5px 15px;
+    }
+    
+    .header-row1 {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .logo-link {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .nav a {
+        margin: 0 5px;
+        padding: 4px 10px;
+        font-size: 15px;
+    }
+    
+    .search-box {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search-box input {
+        width: 200px;
+    }
+    
+    /* 调整字体大小 */
+    .logo, .logo-link, .logo-text {
+        font-size: 28px;
+    }
+    
+    .slogan {
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .section-title, h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    
+    .people-section h1 {
+        margin-bottom: 20px;
+    }
+    
+    .news-date, .news-content {
+        font-size: 15px;
+    }
+    
+    .person-name, .person-role, .paper-title, .paper-authors, .paper-journal, .year-nav a {
+        font-size: 15px;
+    }
+    
+    /* 调整照片大小 */
+    .person-photo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    /* 调整新闻图片 */
+    .news-image {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    /* 调整人员页面布局为单列 */
+    .team-members {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .team-group:nth-child(3) .team-members {
+        flex-direction: column;
+    }
+    
+    .team-group:nth-child(3) .team-members .person-item:nth-child(-n+2),
+    .team-group:nth-child(3) .team-members .person-item:nth-child(n+3) {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* 调整底部布局 */
+    .footer-row {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    /* 调整联系页面布局 */
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .contact-card::before {
+        width: 60%;
+        height: 4px;
+        top: 0;
+        left: 20%;
+        transform: none;
+    }
+    
+    /* 调整年份导航 */
+    .year-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .year-nav a {
+        margin: 5px;
+    }
+}
+
+/* 小屏幕手机 (小于 480px) */
+@media (max-width: 480px) {
+    /* 进一步减小字体大小 */
+    .logo, .logo-link, .logo-text {
+        font-size: 24px;
+    }
+    
+    .nav a {
+        font-size: 14px;
+        padding: 3px 8px;
+    }
+    
+    .search-box input, .search-box button {
+        font-size: 14px;
+    }
+    
+    .search-box input {
+        width: 150px;
+    }
+    
+    .section-title, h1 {
+        font-size: 18px;
+    }
+    
+    .news-date, .news-content, .person-name, .person-role, .paper-title, .paper-authors, .paper-journal, .year-nav a {
+        font-size: 14px;
+    }
+    
+    /* 进一步调整照片大小 */
+    .person-photo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .contact-avatar, .avatar-fallback {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .avatar-svg {
+        width: 24px;
+        height: 24px;
+    }
+}

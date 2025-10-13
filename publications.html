@@ -5,372 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DBlab - Research Center</title>
+    <title>Publications - DBlab</title>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="search.js"></script>
-    <style>
-        :root {
-            --c1: #0f3871;
-            --c2: #2c5282;
-            --c3: #4299e1;
-            --h1: #4a4a4a; 
-            --h2: #0f0f0f; 
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background-color: #ffffff;
-            color: var(--c1);
-            line-height: 1.7;
-            letter-spacing: 0.01em;
-            min-height: auto;
-            display: flex;
-            flex-direction: column;
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* 顶部导航区域 */
-        .header {
-            background-color: #ffffff;
-            padding: 32px 0 8px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: none;
-            width: 960px;
-            margin: 0 auto;
-            border-radius: 0;
-        }
-
-        .header-container {
-            width: 960px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: stretch;
-        }
-
-        .header-row1 {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--c3);
-            flex: 0 0 auto;
-        }
-
-        .logo-link {
-            color: var(--c1);
-            text-decoration: none;
-            font-size: 32px;
-            font-weight: bold;
-            letter-spacing: 0.03em;
-            font-family: inherit;
-            transition: none;
-        }
-
-        .logo-link:hover {
-            color: var(--c1);
-            text-decoration: none;
-        }
-
-        .logo-text {
-            color: var(--c1);
-            font-size: 32px;
-            font-weight: bold;
-            letter-spacing: 0.03em;
-            font-family: inherit;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 1 1 auto;
-            gap: 0;
-        }
-
-        .nav a {
-            margin-left: 15px;
-            text-decoration: none;
-            color: var(--c2);
-            font-size: 16px;
-            font-weight: bold;
-            padding: 7px 16px;
-            border-radius: 4px;
-            transition: none;
-            font-family: inherit;
-            letter-spacing: 0.01em;
-            position: relative;
-        }
-
-        .nav a:first-child {
-            margin-left: 0;
-        }
-
-        .nav a:hover {
-            background-color: transparent;
-            color: var(--c2);
-        }
-
-        .nav a.active {
-            color: var(--c1);
-        }
-
-        .nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--c1);
-            border-radius: 2px;
-        }
-
-        .search-box {
-            display: flex;
-            align-items: center;
-            margin-left: 0;
-            flex: 0 0 auto;
-        }
-
-        .search-box input {
-            padding: 8px 16px;
-            border: 1px solid #bfc9d1;
-            border-radius: 4px 0 0 4px;
-            width: 160px;
-            font-size: 16px;
-            background: #f5f7fa;
-            font-family: inherit;
-            transition: border 0.2s;
-            height: 30px;
-            box-sizing: border-box;
-        }
-
-        .search-box input:focus {
-            border-color: var(--c1);
-            outline: none;
-        }
-
-        .search-box button {
-            padding: 0 24px;
-            background-color: var(--c1);
-            color: #fff;
-            border: none;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-            transition: background 0.2s;
-            height: 30px;
-            box-sizing: border-box;
-            line-height: 30px;
-            display: inline-block;
-        }
-
-        .search-box button:hover {
-            background-color: var(--c2);
-        }
-
-        .main-content {
-            width: 960px;
-            margin: 16px auto;
-            background-color: #fafbfc;
-            min-height: 0;
-            padding: 25px;
-            border: 1px solid #bfc9d1;
-            border-radius: 12px;
-            box-sizing: border-box;
-            font-family: inherit;
-            flex: none;
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* 底部区域 */
-        .footer {
-            background-color: var(--c1);
-            color: #ffffff;
-            padding: 10px 0;
-            text-align: center;
-            width: 960px;
-            margin: 0 auto;
-            border-radius: 0;
-            font-family: inherit;
-        }
-
-        .footer-container {
-            width: 960px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        .footer-logo {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #fff;
-            letter-spacing: 0.02em;
-        }
-
-        .footer-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info {
-            margin-bottom: 0;
-            font-size: 15px;
-            color: #bfc9d1;
-        }
-
-        .copyright {
-            font-size: 13px;
-            color: #bfc9d1;
-            border-top: 1px solid var(--c2);
-            padding-top: 5px;
-            width: 100%;
-            margin-top: 8px;
-        }
-
-        /* 交互样式 */
-        .year-nav {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 18px;
-            color: var(--h2);
-            font-weight: normal;
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-
-        .year-nav a {
-            color: var(--c3);
-            text-decoration: none;
-            margin: 0 8px;
-            padding: 0;
-            border-radius: 0;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            font-weight: bold;
-            font-size: 18px;
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background: none;
-        }
-
-        .year-nav a.active {
-            color: var(--h2);
-            font-weight: bold;
-        }
-
-        .year-nav a:hover {
-            color: var(--h2);
-            background: none;
-        }
-
-        .year-section {
-            margin-bottom: 40px;
-        }
-
-        .year-section.hidden {
-            display: none;
-        }
-
-        .year-title {
-            display: none;
-        }
-
-        .paper-item {
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: var(--h2);
-            font-weight: normal;
-            font-style: normal;
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-
-        .paper-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 8px;
-            color: #0f0f0f;
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-
-        .paper-title a {
-            color: var(--c3);
-            text-decoration: none;
-            font-weight: 600;
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-
-        .paper-title a:hover {
-            text-decoration: underline;
-        }
-
-        .paper-authors {
-            font-size: 18px;
-            color: #0f0f0f;
-            margin-bottom: 5px;
-            line-height: 1.6;
-            font-weight: normal;
-            font-style: normal;
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        .paper-authors strong {
-            font-weight: 700;
-        }
-
-        .paper-journal {
-            font-size: 18px;
-            color: #0f0f0f;
-            font-weight: normal;
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        }
-        
-        .paper-journal strong {
-            font-weight: 700;
-        }
-
-        .section-title {
-            font-size: 24px;
-            color: var(--h1);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .legend {
-            font-size: 18px;
-            color: var(--h1);
-            text-align: left;
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            margin-bottom: 10px;
-            font-weight: normal;
-            font-style: normal;
-        }
-    </style>
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -423,7 +62,7 @@
                     <div class="paper-title">
                         <a href="https://onlinelibrary.wiley.com/doi/10.1111/cas.70178" target="_blank">Integrative Transcriptomic Analysis Decodes the Interplay Between Aging, Senescence, and Cancer</a>
                     </div>
-                    <div class="paper-authors">Cai J#, <strong>Wu D#</strong>, Xu D#, Liu F#, Li P, Zheng D, Xu Z, Cao M, Shen Y, Zhang N, Tian G, Fan C, Wang B*, Li K*, <strong>Bi X*</strong>.</div>
+                    <div class="paper-authors">Cai J<sup>#</sup>, <strong>Wu D<sup>#</sup></strong>, Xu D<sup>#</sup>, Liu F<sup>#</sup>, Li P, Zheng D, Xu Z, Cao M, Shen Y, Zhang N, Tian G, Fan C, Wang B<sup>*</sup>, Li K<sup>*</sup>, <strong>Bi X<sup>*</sup></strong>.</div>
                     <div class="paper-journal"><strong>Cancer Sci.</strong> 2025 Sep 3.</div>
                 </div>
 
@@ -431,7 +70,7 @@
                     <div class="paper-title">
                         <a href="https://www.nature.com/articles/s41467-025-63200-z" target="_blank">Lymph nodes molecular subtypes unravel lymph nodes heterogeneity and clinical implications in colorectal cancer</a>
                     </div>
-                    <div class="paper-authors">Guan X#, Zhang Y#, Sun R#, Wang G#, <strong>Bi X#</strong>, Zhang Z, Zan L, Meng Y, Liu Y, Guo J, Ma J, Li J, Hu H, Zhang Y, Zhang X, Liu M, Jiang B, Liu H, Zou S, Xi Y*, Zhou H*, Bai W*, <strong>Wu D*</strong>, Wang X*.</div>
+                    <div class="paper-authors">Guan X<sup>#</sup>, Zhang Y<sup>#</sup>, Sun R<sup>#</sup>, Wang G<sup>#</sup>, <strong>Bi X<sup>#</sup></strong>, Zhang Z, Zan L, Meng Y, Liu Y, Guo J, Ma J, Li J, Hu H, Zhang Y, Zhang X, Liu M, Jiang B, Liu H, Zou S, Xi Y<sup>*</sup>, Zhou H<sup>*</sup>, Bai W<sup>*</sup>, <strong>Wu D<sup>*</sup></strong>, Wang X<sup>*</sup>.</div>
                     <div class="paper-journal"><strong>Nat Commun.</strong> 2025 Aug 22;16(1):7834.</div>
                 </div>
 
@@ -439,7 +78,7 @@
                     <div class="paper-title">
                         <a href="https://www.nature.com/articles/s41416-024-02941-2" target="_blank">Impact of lymph node metastasis on immune microenvironment and prognosis in colorectal cancer liver metastasis: insights from multiomics profiling</a>
                     </div>
-                    <div class="paper-authors">Zhang Y#, <strong>Wu D#</strong>, Zhang Z#, Ma J#, Jiao S, Ma X, Li J, Meng Y, Zhao Z, Chen H, Jiang Z, Wang G, Liu H, Xi Y*, Zhou H*, Wang X*, Guan X*.</div>
+                    <div class="paper-authors">Zhang Y<sup>#</sup>, <strong>Wu D<sup>#</sup></strong>, Zhang Z<sup>#</sup>, Ma J<sup>#</sup>, Jiao S, Ma X, Li J, Meng Y, Zhao Z, Chen H, Jiang Z, Wang G, Liu H, Xi Y<sup>*</sup>, Zhou H<sup>*</sup>, Wang X<sup>*</sup>, Guan X<sup>*</sup>.</div>
                     <div class="paper-journal"><strong>Br J Cancer.</strong> 2025 Apr;132(6):513-524.</div>
                 </div>
             </div>
@@ -450,7 +89,7 @@
                     <div class="paper-title">
                         <a href="https://onlinelibrary.wiley.com/doi/10.1111/acel.14264" target="_blank">Activation of hypoxia response in aging cerebral vascular protects male against cognitive impairment</a>
                     </div>
-                    <div class="paper-authors">Li P#, <strong>Bi X#</strong>, Xu D#, Meng Y#, Xia Y, Cai J, Shen Y, Wang J, Chen J, Wang B*, <strong>Wu D*</strong>, Li K*.</div>
+                    <div class="paper-authors">Li P<sup>#</sup>, <strong>Bi X<sup>#</sup></strong>, Xu D<sup>#</sup>, Meng Y<sup>#</sup>, Xia Y, Cai J, Shen Y, Wang J, Chen J, Wang B<sup>*</sup>, <strong>Wu D<sup>*</sup></strong>, Li K<sup>*</sup>.</div>
                     <div class="paper-journal"><strong>Aging Cell.</strong> 2024 Oct;23(10): e14264.</div>
                 </div>
 
@@ -458,7 +97,7 @@
                     <div class="paper-title">
                         <a href="https://onlinelibrary.wiley.com/doi/10.1002/ctm2.1659" target="_blank">Single-cell transcriptomic landscape reveals distinct tumourigenesis and immune microenvironments in secondary radiation-exposed rectal cancer</a>
                     </div>
-                    <div class="paper-authors">Guan X#, <strong>Bi X#</strong>, Wei R#, Zhao Z#, Lu Z, Jiang Z, Wang X*, <strong>Wu D*</strong>.</div>
+                    <div class="paper-authors">Guan X<sup>#</sup>, <strong>Bi X<sup>#</sup></strong>, Wei R<sup>#</sup>, Zhao Z<sup>#</sup>, Lu Z, Jiang Z, Wang X<sup>*</sup>, <strong>Wu D<sup>*</sup></strong>.</div>
                     <div class="paper-journal"><strong>Clin Transl Med.</strong> 2024 Apr;14(4):e1659.</div>
                 </div>
 
@@ -485,7 +124,7 @@
                     <div class="paper-title">
                         <a href="https://onlinelibrary.wiley.com/doi/10.1002/cam4.6312" target="_blank">Pan-cancer analyses reveal multi-omic signatures and clinical implementations of the forkhead-box gene family</a>
                     </div>
-                    <div class="paper-authors"><strong>Bi X#</strong>, Zheng D#, Cai J#, Xu D#, Chen L, Xu Z, Cao M, Li P, Shen Y, Wang H, Zheng W, <strong>Wu D*</strong>, Zheng S*, Li K*.</div>
+                    <div class="paper-authors"><strong>Bi X<sup>#</sup></strong>, Zheng D<sup>#</sup>, Cai J<sup>#</sup>, Xu D<sup>#</sup>, Chen L, Xu Z, Cao M, Li P, Shen Y, Wang H, Zheng W, <strong>Wu D<sup>*</sup></strong>, Zheng S<sup>*</sup>, Li K<sup>*</sup>.</div>
                     <div class="paper-journal"><strong>Cancer Med.</strong> 2023 Aug;12(16):17428-17444.</div>
                 </div>
 
@@ -493,7 +132,7 @@
                     <div class="paper-title">
                         <a href="https://onlinelibrary.wiley.com/doi/10.1111/acel.13810" target="_blank">Enhanced insulin-regulated phagocytic activities support extreme health span and longevity in multiple populations</a>
                     </div>
-                    <div class="paper-authors"><strong>Wu D#</strong>, <strong>Bi X#</strong>, Li P, Xu D, Qiu J, Li K*, Zheng S*, Chow KH*.</div>
+                    <div class="paper-authors"><strong>Wu D<sup>#</sup></strong>, <strong>Bi X<sup>#</sup></strong>, Li P, Xu D, Qiu J, Li K<sup>*</sup>, Zheng S<sup>*</sup>, Chow KH<sup>*</sup>.</div>
                     <div class="paper-journal"><strong>Aging Cell.</strong> 2023 May;22(5):e13810. <strong>(Wiley "Open Science Excellent Author Program")</strong></div>
                 </div>
 
@@ -501,7 +140,7 @@
                     <div class="paper-title">
                         <a href="https://onlinelibrary.wiley.com/doi/10.1111/acel.13772" target="_blank">Chronic alcohol metabolism results in DNA repair infidelity and cell-cycle-induced senescence in neurons</a>
                     </div>
-                    <div class="paper-authors">Sun JK#, <strong>Wu D#</strong>, Wong GC, Lau TM, Yang M, Hart RP, Kwan KM, Chan HYE, Chow HM*.</div>
+                    <div class="paper-authors">Sun JK<sup>#</sup>, <strong>Wu D<sup>#</sup></strong>, Wong GC, Lau TM, Yang M, Hart RP, Kwan KM, Chan HYE, Chow HM<sup>*</sup>.</div>
                     <div class="paper-journal"><strong>Aging Cell.</strong> 2023 Jan 23;e13772.</div>
                 </div>
             </div>
@@ -512,7 +151,7 @@
                     <div class="paper-title">
                         <a href="https://jhoonline.biomedcentral.com/articles/10.1186/s13045-022-01318-z" target="_blank">NBAS, a gene involved in cytotoxic degranulation, is recurrently mutated in pediatric hemophagocytic lymphohistiocytosis</a>
                     </div>
-                    <div class="paper-authors"><strong>Bi X#</strong>, Zhang Q#, Chen L#, Liu D, Li Y, Zhao X, Zhang Y, Zhang L, Liu J, Wu C, Li Z, Zhao Y, Ma H, Huang G, Liu X*, Wang QF*, Zhang R*.</div>
+                    <div class="paper-authors"><strong>Bi X<sup>#</sup></strong>, Zhang Q<sup>#</sup>, Chen L<sup>#</sup>, Liu D, Li Y, Zhao X, Zhang Y, Zhang L, Liu J, Wu C, Li Z, Zhao Y, Ma H, Huang G, Liu X<sup>*</sup>, Wang QF<sup>*</sup>, Zhang R<sup>*</sup>.</div>
                     <div class="paper-journal"><strong>J Hematol Oncol.</strong> 2022 Jul 28;15(1):101. <strong>(Highlighted by China Daily and Global Times)</strong></div>
                 </div>
 
@@ -520,7 +159,7 @@
                     <div class="paper-title">
                         <a href="https://academic.oup.com/mbe/article/39/6/msac120/6596365?login=false" target="_blank">How placenta promotes the successful reproduction in high-altitude populations: a transcriptome comparison between adaptation and acclimatization</a>
                     </div>
-                    <div class="paper-authors"><strong>Wu D#</strong>, Liu Y#, Chen W#, Shao J, Zhuoma P, Zhao D, Yu Y, Liu T, Yu R, Gan Y, Yuzheng B, Huang Y, Zhang H, <strong>Bi X</strong>, Tao C, Lai S, Luo Q, Zhang D, Wang H, Zhaxi P, Zhang J, Qiao J, Zeng C*.</div>
+                    <div class="paper-authors"><strong>Wu D<sup>#</sup></strong>, Liu Y<sup>#</sup>, Chen W<sup>#</sup>, Shao J, Zhuoma P, Zhao D, Yu Y, Liu T, Yu R, Gan Y, Yuzheng B, Huang Y, Zhang H, <strong>Bi X</strong>, Tao C, Lai S, Luo Q, Zhang D, Wang H, Zhaxi P, Zhang J, Qiao J, Zeng C<sup>*</sup>.</div>
                     <div class="paper-journal"><strong>Mol Biol Evol.</strong> 2022 Jun 2;39(6):msac120.</div>
                 </div>
             </div>
