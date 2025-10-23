@@ -2,11 +2,11 @@
 
 /* CSS变量定义 */
 :root {
-    --c1: #0f3871; /* 深主色 */
-    --c2: #2c5282; /* 主色 */
-    --c3: #1472c0; /* 浅主色 */
-    --h1: #4a4a4a; /* 再浅一点的黑色 */
-    --h2: #0f0f0f; /* 统一文本色 - 更深的黑色 */
+    --c1: #0265c9; /* 改为天蓝色，避免死板 */
+    --c2: #0265c9e2; /* 浅一点的主色 */
+    --c3: #066cd1; /* 深一点的主色 */
+    --h1: #575757; /* 再浅一点的黑色 */
+    --h2: #0f0f0fe4; /* 统一文本色 - 更深的黑色 */
     --bg-light: #ffffff; /* 浅色背景 */
     --border-color: #e0e7ff; /* 边框颜色 */
     --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* 轻微阴影 */
@@ -30,6 +30,7 @@ body {
     display: flex;
     flex-direction: column;
     font-weight: 400; /* 设置默认字体粗细为常规 */
+    font-size: 23px;
 }
 
 /* 顶部导航区域 */
@@ -63,7 +64,7 @@ body {
 }
 
 .logo {
-    font-size: 34px;
+    font-size: 48.96px; /* 54.4px * 0.9 缩小10% */
     font-weight: bold;
     color: var(--c3);
     flex: 0 0 auto;
@@ -72,7 +73,7 @@ body {
 .logo-link {
     color: var(--c1);
     text-decoration: none;
-    font-size: 34px;
+    font-size: 48.96px; /* 54.4px * 0.9 缩小10% */
     font-weight: bold;
     letter-spacing: 0.03em;
     font-family: inherit;
@@ -86,7 +87,7 @@ body {
 
 .logo-text {
     color: var(--c1);
-    font-size: 34px;
+    font-size: 48.96px; /* 54.4px * 0.9 缩小10% */
     font-weight: bold;
     letter-spacing: 0.03em;
     font-family: inherit;
@@ -101,12 +102,12 @@ body {
 }
 
 .nav a {
-    margin-left: 15px;
+    margin-left: 10px;
     text-decoration: none;
     color: var(--c2);
-    font-size: 18px;
+    font-size: 23px;
     font-weight: bold;
-    padding: 7px 16px;
+    padding: 7px 15px;
     border-radius: 4px;
     transition: none;
     font-family: inherit;
@@ -147,16 +148,18 @@ body {
 }
 
 .search-box input {
-    padding: 8px 16px;
+    padding: 10px 16px;
     border: 1px solid #bfc9d1;
     border-radius: 4px 0 0 4px;
-    width: 160px;
-    font-size: 18px;
+    width: 200px;
+    font-size: 22px;
     background: #f5f7fa;
     font-family: inherit;
     transition: border 0.2s;
-    height: 30px;
+    height: 36px;
     box-sizing: border-box;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
 }
 
 .search-box input:focus {
@@ -165,18 +168,18 @@ body {
 }
 
 .search-box button {
-    padding: 0 24px;
+    padding: 0 28px;
     background-color: var(--c1);
     color: #fff;
     border: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
     transition: background 0.2s;
-    height: 30px;
+    height: 36px;
     box-sizing: border-box;
-    line-height: 30px;
+    line-height: 36px;
     display: inline-block;
 }
 
@@ -196,7 +199,7 @@ body {
 }
 
 .slogan {
-    font-size: 16px;
+    font-size: 23px;
     color: #414043c8;
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -266,8 +269,8 @@ body {
 
 /* 底部区域 */
 .footer {
-    background-color: var(--c1);
-    color: #ffffff;
+    background-color: transparent;
+    color: var(--h1);
     padding: 10px 0;
     text-align: center;
     width: 75%;
@@ -286,10 +289,10 @@ body {
 }
 
 .footer-logo {
-    font-size: 20px;
+    font-size: 32px;
     font-weight: bold;
     margin-bottom: 2px;
-    color: #fff;
+    color: var(--h1);
     letter-spacing: 0.02em;
 }
 
@@ -315,10 +318,10 @@ body {
 }
 
 .copyright {
-    font-size: 13px;
-    color: #bfc9d1;
-    border-top: 1px solid var(--c2);
-    padding-top: 5px;
+    font-size: 18.72px;
+    color: var(--h1);
+    border-top: none;
+    padding-top: 0;
     width: 100%;
     margin-top: 8px;
 }
@@ -329,7 +332,7 @@ body {
 }
 
 .lab-news h1 {
-    font-size: 24px;
+    font-size: 32px; /* 与全局h1保持一致 */
     color: var(--h1);
     margin-bottom: 20px;
     font-weight: 700;
@@ -346,7 +349,7 @@ body {
 }
 
 .news-date {
-    font-size: 18px;
+    font-size: 24px;
     color: #0f0f0f;
     font-weight: normal;
     margin-bottom: 0;
@@ -354,7 +357,7 @@ body {
 }
 
 .news-content {
-    font-size: 18px;
+    font-size: 24px;
     line-height: 1.5;
     color: #0f0f0f;
     margin-bottom: 10px;
@@ -372,13 +375,20 @@ body {
 
 .news-image {
     display: block;
-    margin: 15px auto 20px auto;
-    width: 75%;
-    max-width: none;
+    width: 80%;
     height: auto;
     object-fit: contain;
     border-radius: 4px;
     border: 1px solid #dee2e6;
+    margin: 15px auto 30px auto;
+    position: relative;
+    clear: both;
+    overflow: visible;
+}
+
+/* 仅缩小特定的home1.png图片 */
+.news-image[src="image/home1.png"] {
+    width: 65%;
 }
 
 /* 联系页面特定样式 */
@@ -388,9 +398,9 @@ body {
 
 /* Contact Us标题样式 */
 .contact-section h1 {
-    font-size: 24px;
+    font-size: 32px;
     color: var(--h1);
-    margin-bottom: 20px;
+    margin-bottom: 28px;
     font-weight: 700;
 }
 
@@ -399,7 +409,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -428,15 +438,15 @@ body {
 }
 
 .contact-avatar {
-    width: 60px;
-    height: 60px;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
     background-color: var(--c1);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 24px;
+    font-size: 40px;
     flex-shrink: 0;
 }
 
@@ -450,7 +460,7 @@ body {
 
 /* 联系人姓名样式 */
 .contact-card h2 {
-    font-size: 19px;
+    font-size: 28px;
     font-weight: bold;
     color: var(--h2);
     margin-bottom: 10px;
@@ -458,7 +468,7 @@ body {
 
 /* 联系人邮箱样式 */
 .contact-card p {
-    font-size: 18px;
+    font-size: 24px;
     color: var(--h2);
     margin: 0;
     line-height: 1.6;
@@ -466,28 +476,28 @@ body {
 
 /* 备用SVG图标样式 */
 .avatar-fallback {
-    width: 60px;
-    height: 60px;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
     background-color: var(--c1);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 24px;
+    font-size: 34px;
     flex-shrink: 0;
 }
 
 /* 备用SVG图标 */
 .avatar-svg {
-    width: 32px;
-    height: 32px;
+    width: 50px;
+    height: 50px;
     fill: white;
 }
 
 /* 人员页面特定样式 */
 .people-section h1 {
-    font-size: 24px;
+    font-size: 34px;
     color: var(--h1);
     margin-bottom: 30px;
     font-weight: 700;
@@ -522,7 +532,7 @@ body {
 
 /* Graduate Students的前两个成员（第一排） */
 .team-group:nth-child(3) .team-members .person-item:nth-child(-n+2) {
-    width: calc(50% - 8px);
+    width: calc(35% - 10px);
     margin-bottom: 15px;
 }
 
@@ -558,8 +568,8 @@ body {
 
 /* 圆框照片 */
 .person-photo {
-    width: 180px;
-    height: 180px;
+    width: 288px;
+    height: 288px;
     border-radius: 50%;
     object-fit: cover;
     border: none;
@@ -580,13 +590,13 @@ body {
 }
 
 .person-name {
-    font-size: 18px;
+    font-size: 24px;
     color: var(--h2);
     margin-bottom: 8px;
 }
 
 .person-role {
-    font-size: 17px;
+    font-size: 24.48px;
     color: var(--c2);
     margin-bottom: 5px;
     line-height: 1.5;
@@ -594,7 +604,7 @@ body {
 
 /* 统一的标题样式 - 适用于所有h1和.section-title */
 .section-title, h1 {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--h1);
     margin-bottom: 30px;
@@ -630,7 +640,7 @@ body {
 .year-nav {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 24px;
     color: var(--h2);
     font-weight: normal;
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -645,7 +655,7 @@ body {
     cursor: pointer;
     transition: color 0.3s ease;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 24px;
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
     background: none;
 }
@@ -682,7 +692,7 @@ body {
 }
 
 .paper-title {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 300;
     margin-bottom: 1px;
     color: #0f0f0f;
@@ -702,7 +712,7 @@ body {
 
 
 .paper-authors {
-    font-size: 18px;
+    font-size: 24px;
     color: #0f0f0f;
     margin-bottom: 5px;
     line-height: 1.5;
@@ -716,7 +726,7 @@ body {
 }
 
 .paper-journal {
-    font-size: 18px;
+    font-size: 24px;
     color: #0f0f0f;
     line-height: 1.5;
     font-weight: normal;
@@ -730,7 +740,7 @@ body {
 }
 
 .legend {
-    font-size: 18px;
+    font-size: 24px;
     color: var(--h1);
     text-align: left;
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
