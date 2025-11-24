@@ -404,6 +404,58 @@ body {
     font-weight: 700;
 }
 
+/* 微信公众号部分样式 */
+.wechat-section {
+    margin-top: 40px;
+    text-align: center;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wechat-section h2 {
+    font-size: 28px;
+    color: var(--h1);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.wechat-section p {
+    font-size: 24px;
+    color: var(--h2);
+    margin-bottom: 25px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wechat-qrcode {
+    display: inline-block;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.wechat-qrcode:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.qrcode-image {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    border: 1px solid #e0e7ff;
+    border-radius: 4px;
+}
+
 /* 联系人卡片样式 */
 .contact-grid {
     display: flex;
