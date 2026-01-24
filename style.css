@@ -937,6 +937,27 @@ body {
         font-size: 15px;
     }
     
+    /* 调整年份导航栏 */
+    .year-nav {
+        text-align: center;
+        font-size: 15px;
+    }
+    
+    .year-nav span {
+        font-size: 15px !important;
+        margin-right: 5px;
+    }
+    
+    .year-nav a {
+        margin: 0 4px;
+    }
+    
+    /* 调整图例 */
+    .legend {
+        font-size: 14px;
+        text-align: center;
+    }
+    
     /* 调整照片大小 */
     .person-photo {
         width: 150px;
@@ -945,8 +966,18 @@ body {
     
     /* 调整新闻图片 */
     .news-image {
-        width: 100%;
-        margin: 10px 0;
+        width: 80%;
+        margin: 10px auto;
+    }
+    
+    /* 保持特定图片的缩小效果 */
+    .news-image[src="image/home1.png"] {
+        width: 65%;
+        margin: 10px auto;
+    }
+    .news-image[src="image/home7.jpg"] {
+        width: 50%;
+        margin: 10px auto;
     }
     
     /* 调整人员页面布局为单列 */
@@ -957,12 +988,14 @@ body {
     
     .team-group:nth-child(3) .team-members {
         flex-direction: column;
+        align-items: center;
     }
     
     .team-group:nth-child(3) .team-members .person-item:nth-child(-n+2),
     .team-group:nth-child(3) .team-members .person-item:nth-child(n+3) {
-        width: 100%;
+        width: 80%;
         max-width: 300px;
+        margin: 0 auto;
     }
     
     /* 调整底部布局 */
