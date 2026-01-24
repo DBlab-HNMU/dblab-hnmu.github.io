@@ -386,9 +386,12 @@ body {
     overflow: visible;
 }
 
-/* 仅缩小特定的home1.png图片 */
+/* 仅缩小特定的图片 */
 .news-image[src="image/home1.png"] {
     width: 65%;
+}
+.news-image[src="image/home7.jpg"] {
+    width: 50%;
 }
 
 /* 联系页面特定样式 */
