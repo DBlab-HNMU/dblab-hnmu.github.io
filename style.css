@@ -1262,4 +1262,25 @@ body {
         font-size: 14px;
         text-align: center;
     }
+    
+    /* 调整联系页面布局为单列 */
+    .contact-main {
+        flex-direction: column;
+    }
+    
+    .contact-main > .contact-grid,
+    .contact-main > .wechat-section {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .wechat-section {
+        order: -1;
+        margin-bottom: 20px;
+    }
+    
+    .qrcode-image {
+        width: 150px;
+        height: 150px;
+    }
 }
