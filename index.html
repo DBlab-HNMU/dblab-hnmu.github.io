@@ -26,6 +26,7 @@
                     <a href="research.html">Research</a>
                     <a href="people.html">People</a>
                     <a href="publications.html">Publications</a>
+                    <a href="labnews.html">Labnews</a>
                     <a href="contact.html">Contact</a>
                 </nav>
                 <div class="search-box">
@@ -39,6 +40,22 @@
     <!-- 中间内容区域 -->
     <main class="main-content">
         <div class="lab-news">
+            <!-- 轮播图区域 -->
+            <div class="slideshow-container">
+                <div class="slideshow-slide">
+                    <img src="image/slideshow1.jpg" alt="Slide 1" class="slideshow-image">
+                </div>
+                <div class="slideshow-slide">
+                    <img src="image/slideshow2.jpg" alt="Slide 2" class="slideshow-image">
+                </div>
+                <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div class="slideshow-dots">
+                <span class="slideshow-dot" onclick="currentSlide(1)"></span>
+                <span class="slideshow-dot" onclick="currentSlide(2)"></span>
+            </div>
+
             <h1>Lab News</h1>
             
             <div class="news-item">
@@ -64,28 +81,8 @@
                 <div class="news-content">[2025-08-27] A big welcome to our new graduate students: Riyang Xing, Kexin Yang, Liqi Chen, and Qiwen Wu! We're excited to have you on the team and look forward to achieving great things together.</div>
             </div>
 
-            <div class="news-item">
-                <div class="news-content">[2025-08-22] Our collaborative study with Drs. Xishan Wang, Xu Guan and other authors entitled <a href="https://www.nature.com/articles/s41467-025-63200-z" class="news-link" target="_blank">Lymph nodes molecular subtypes unravel lymph nodes heterogeneity and clinical implications in colorectal cancer</a> has been published in Nature Communications. Congratulations to all co-authors!</div>
-                <img src="image/home2.png" alt="Nature Communications publication" class="news-image">
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">[2025-02-17] Our collaborative study with Drs. Xishan Wang, Xu Guan and other authors entitled <a href="https://www.nature.com/articles/s41416-025-02941-6" class="news-link" target="_blank">Impact of lymph node metastasis on immune microenvironment and prognosis in colorectal cancer liver metastasis: insights from multiomics profiling</a> has been published in British Journal of Cancer. Congratulations to all co-authors!</div>
-                <img src="image/home3.png" alt="British Journal of Cancer publication" class="news-image">
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">[2024-11-27] Drs. Wu and Bi attended the CSI 2024 conference held in Hangzhou, China. They both gave talks on aging and immunology.</div>
-                <img src="image/home4.jpg" alt="CSI 2024 conference" class="news-image">
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">[2024-10-09] Our lab attended the CCBSB 2024 conference held in Haikou, China. Dr. Wu was invited to give a talk about "Why women are more prone to dementia in old age: Exploring gender biased features of the brain at the single-cell level".</div>
-                <img src="image/home5.jpg" alt="CCBSB 2024 conference" class="news-image">
-            </div>
-
-            <div class="news-item">
-                <div class="news-content">[2024-10-08] Drs. Deng Wu and Xiaoman Bi founded DBlab at the College of Biomedical Information and Engineering at Hainan Medical University.</div>
+            <div class="more-link">
+                <a href="labnews.html">More lab news...</a>
             </div>
         </div>
     </main>

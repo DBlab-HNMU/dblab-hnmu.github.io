@@ -19,6 +19,17 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+img, video, iframe, object, embed {
+    max-width: 100%;
+    height: auto;
+}
+
 /* 全局样式 */
 body {
     font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -30,7 +41,92 @@ body {
     display: flex;
     flex-direction: column;
     font-weight: 400; /* 设置默认字体粗细为常规 */
-    font-size: 23px;
+    font-size: 20px;
+}
+
+/* 轮播图样式 */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
+    height: 500px;
+}
+
+.slideshow-slide {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slideshow-slide:first-child {
+    display: block;
+}
+
+.slideshow-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.slideshow-prev,
+.slideshow-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.slideshow-prev {
+    left: 10px;
+}
+
+.slideshow-next {
+    right: 10px;
+}
+
+.slideshow-dots {
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    z-index: 10;
+}
+
+.slideshow-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slideshow-dot.active {
+    background-color: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .slideshow-container {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slideshow-container {
+        height: 300px;
+    }
 }
 
 /* 顶部导航区域 */
@@ -64,7 +160,7 @@ body {
 }
 
 .logo {
-    font-size: 48.96px; /* 54.4px * 0.9 缩小10% */
+    font-size: 42px;
     font-weight: bold;
     color: var(--c3);
     flex: 0 0 auto;
@@ -73,7 +169,7 @@ body {
 .logo-link {
     color: var(--c1);
     text-decoration: none;
-    font-size: 48.96px; /* 54.4px * 0.9 缩小10% */
+    font-size: 42px;
     font-weight: bold;
     letter-spacing: 0.03em;
     font-family: inherit;
@@ -87,7 +183,7 @@ body {
 
 .logo-text {
     color: var(--c1);
-    font-size: 48.96px; /* 54.4px * 0.9 缩小10% */
+    font-size: 42px;
     font-weight: bold;
     letter-spacing: 0.03em;
     font-family: inherit;
@@ -332,7 +428,7 @@ body {
 }
 
 .lab-news h1 {
-    font-size: 32px; /* 与全局h1保持一致 */
+    font-size: 28px; /* 与全局h1保持一致 */
     color: var(--h1);
     margin-bottom: 20px;
     font-weight: 700;
@@ -349,15 +445,14 @@ body {
 }
 
 .news-date {
-    font-size: 24px;
+    font-size: 20px;
+    line-height: 1.5;
     color: #0f0f0f;
-    font-weight: normal;
-    margin-bottom: 0;
-    display: inline;
+    margin-bottom: 10px;
 }
 
 .news-content {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.5;
     color: #0f0f0f;
     margin-bottom: 10px;
@@ -375,7 +470,7 @@ body {
 
 .news-image {
     display: block;
-    width: 80%;
+    width: 60%;
     height: auto;
     object-fit: contain;
     border-radius: 4px;
@@ -386,12 +481,28 @@ body {
     overflow: visible;
 }
 
-/* 仅缩小特定的图片 */
-.news-image[src="image/home1.png"] {
-    width: 65%;
-}
+/* 特殊图片宽度 */
 .news-image[src="image/home7.jpg"] {
     width: 50%;
+}
+
+/* More链接样式 */
+.more-link {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.more-link a {
+    color: var(--c3);
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.more-link a:hover {
+    color: var(--h2);
+    text-decoration: underline;
 }
 
 /* 联系页面特定样式 */
@@ -401,7 +512,7 @@ body {
 
 /* Contact Us标题样式 */
 .contact-section h1 {
-    font-size: 32px;
+    font-size: 28px;
     color: var(--h1);
     margin-bottom: 28px;
     font-weight: 700;
@@ -409,21 +520,20 @@ body {
 
 /* 微信公众号部分样式 */
 .wechat-section {
-    margin-top: 40px;
     text-align: center;
     padding: 25px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .wechat-section h2 {
-    font-size: 28px;
+    font-size: 24px;
     color: var(--h1);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-weight: 600;
 }
 
@@ -432,9 +542,6 @@ body {
     color: var(--h2);
     margin-bottom: 25px;
     line-height: 1.6;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .wechat-qrcode {
@@ -452,11 +559,29 @@ body {
 }
 
 .qrcode-image {
-    width: 240px;
-    height: 240px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
     border: 1px solid #e0e7ff;
     border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* 联系方式主容器 */
+.contact-main {
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.contact-main > .contact-grid {
+    flex: 6;
+}
+
+.contact-main > .wechat-section {
+    flex: 4;
 }
 
 /* 联系人卡片样式 */
@@ -464,8 +589,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
 }
 
 .contact-card {
@@ -478,6 +601,7 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
+    flex: 1;
 }
 
 .contact-card::before {
@@ -515,7 +639,7 @@ body {
 
 /* 联系人姓名样式 */
 .contact-card h2 {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--h2);
     margin-bottom: 10px;
@@ -523,7 +647,7 @@ body {
 
 /* 联系人邮箱样式 */
 .contact-card p {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--h2);
     margin: 0;
     line-height: 1.6;
@@ -552,7 +676,7 @@ body {
 
 /* 人员页面特定样式 */
 .people-section h1 {
-    font-size: 34px;
+    font-size: 28px;
     color: var(--h1);
     margin-bottom: 30px;
     font-weight: 700;
@@ -623,8 +747,8 @@ body {
 
 /* 圆框照片 */
 .person-photo {
-    width: 288px;
-    height: 288px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     border: none;
@@ -645,13 +769,13 @@ body {
 }
 
 .person-name {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--h2);
     margin-bottom: 8px;
 }
 
 .person-role {
-    font-size: 24.48px;
+    font-size: 20px;
     color: var(--c2);
     margin-bottom: 5px;
     line-height: 1.5;
@@ -659,7 +783,7 @@ body {
 
 /* 统一的标题样式 - 适用于所有h1和.section-title */
 .section-title, h1 {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--h1);
     margin-bottom: 30px;
@@ -667,6 +791,13 @@ body {
     width: 100%;
     text-align: left;
     font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* 研究方向标题样式 */
+.research-direction h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 /* Graduate Students标题的特殊样式 - 增加下方间距 */
@@ -747,7 +878,7 @@ body {
 }
 
 .paper-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     margin-bottom: 1px;
     color: #0f0f0f;
@@ -767,7 +898,7 @@ body {
 
 
 .paper-authors {
-    font-size: 24px;
+    font-size: 20px;
     color: #0f0f0f;
     margin-bottom: 5px;
     line-height: 1.5;
@@ -776,12 +907,17 @@ body {
     font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
+.paper-authors sup {
+    font-size: 14px;
+    vertical-align: super;
+}
+
 .paper-authors strong {
     font-weight: 500;
 }
 
 .paper-journal {
-    font-size: 24px;
+    font-size: 20px;
     color: #0f0f0f;
     line-height: 1.5;
     font-weight: normal;
@@ -795,7 +931,7 @@ body {
 }
 
 .legend {
-    font-size: 24px;
+    font-size: 20px;
     color: var(--h1);
     text-align: left;
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -815,7 +951,7 @@ body {
     
     /* 减小字体大小 */
     .logo, .logo-link, .logo-text {
-        font-size: 30px;
+        font-size: 38px;
     }
     
     .nav a {
@@ -835,11 +971,32 @@ body {
         font-size: 22px;
     }
     
-    .news-date, .news-content {
+    body {
+        font-size: 16px;
+    }
+    
+    .news-date, .news-content, .research-direction h2 {
         font-size: 16px;
     }
     
     .person-name, .person-role, .paper-title, .paper-authors, .paper-journal, .year-nav a {
+        font-size: 16px;
+    }
+    
+    .paper-authors sup {
+        font-size: 12px;
+    }
+    
+    /* 调整年份导航栏 */
+    .year-nav {
+        font-size: 16px;
+    }
+    
+    .year-nav span {
+        font-size: 16px !important;
+    }
+    
+    .year-nav a {
         font-size: 16px;
     }
     
@@ -912,7 +1069,7 @@ body {
     
     /* 调整字体大小 */
     .logo, .logo-link, .logo-text {
-        font-size: 28px;
+        font-size: 36px;
     }
     
     .slogan {
@@ -925,6 +1082,14 @@ body {
         text-align: center;
     }
     
+    body {
+        font-size: 15px;
+    }
+    
+    .news-date, .news-content, .research-direction h2 {
+        font-size: 15px;
+    }
+    
     .people-section h1 {
         margin-bottom: 20px;
     }
@@ -935,6 +1100,10 @@ body {
     
     .person-name, .person-role, .paper-title, .paper-authors, .paper-journal, .year-nav a {
         font-size: 15px;
+    }
+    
+    .paper-authors sup {
+        font-size: 11px;
     }
     
     /* 调整年份导航栏 */
@@ -950,11 +1119,12 @@ body {
     
     .year-nav a {
         margin: 0 4px;
+        font-size: 15px;
     }
     
     /* 调整图例 */
     .legend {
-        font-size: 14px;
+        font-size: 16px;
         text-align: center;
     }
     
@@ -967,16 +1137,6 @@ body {
     /* 调整新闻图片 */
     .news-image {
         width: 80%;
-        margin: 10px auto;
-    }
-    
-    /* 保持特定图片的缩小效果 */
-    .news-image[src="image/home1.png"] {
-        width: 65%;
-        margin: 10px auto;
-    }
-    .news-image[src="image/home7.jpg"] {
-        width: 50%;
         margin: 10px auto;
     }
     
@@ -1032,10 +1192,16 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         margin-bottom: 15px;
+        font-size: 14px;
+    }
+    
+    .year-nav span {
+        font-size: 14px !important;
     }
     
     .year-nav a {
         margin: 5px;
+        font-size: 14px;
     }
 }
 
@@ -1043,7 +1209,7 @@ body {
 @media (max-width: 480px) {
     /* 进一步减小字体大小 */
     .logo, .logo-link, .logo-text {
-        font-size: 24px;
+        font-size: 32px;
     }
     
     .nav a {
@@ -1063,8 +1229,16 @@ body {
         font-size: 18px;
     }
     
-    .news-date, .news-content, .person-name, .person-role, .paper-title, .paper-authors, .paper-journal, .year-nav a {
+    body {
         font-size: 14px;
+    }
+    
+    .news-date, .news-content, .research-direction h2, .person-name, .person-role, .paper-title, .paper-authors, .paper-journal, .year-nav a {
+        font-size: 14px;
+    }
+    
+    .paper-authors sup {
+        font-size: 10px;
     }
     
     /* 进一步调整照片大小 */
@@ -1081,5 +1255,11 @@ body {
     .avatar-svg {
         width: 24px;
         height: 24px;
+    }
+    
+    /* 调整图例 */
+    .legend {
+        font-size: 14px;
+        text-align: center;
     }
 }
