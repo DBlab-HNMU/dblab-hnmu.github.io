@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBlab - Research Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 外部样式和脚本引用 -->
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <!-- 顶部导航区域 -->
+    <header class="header">
+        <div class="header-container">
+            <!-- 第一行：logo、导航、搜索框 -->
+            <div class="header-row1">
+                <div class="logo">
+                    <span class="logo-text">DBlab</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="labnews.html">Labnews</a>
+                    <a href="research.html">Research</a>
+                    <a href="people.html">People</a>
+                    <a href="publications.html">Publications</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <button>Go</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 中间内容区域 -->
+    <main class="main-content">
+        <div class="lab-news">
+            <!-- 轮播图区域 -->
+            <div class="slideshow-container">
+                <div class="slideshow-slide">
+                    <img src="image/slideshow1.jpg" alt="Slide 1" class="slideshow-image">
+                </div>
+                <div class="slideshow-slide">
+                    <img src="image/slideshow2.jpg" alt="Slide 2" class="slideshow-image">
+                </div>
+                <a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div class="slideshow-dots">
+                <span class="slideshow-dot" onclick="currentSlide(1)"></span>
+                <span class="slideshow-dot" onclick="currentSlide(2)"></span>
+            </div>
+
+            <h1>Lab News</h1>
+            
+            <div class="news-item">
+                <div class="news-content">[2025-12-27] Our lab distributed New Year gifts and offered a large number of lucky draw spots to all members, bringing a warm and festive atmosphere to the end of the year.</div>
+                <img src="image/home7.jpg" alt="New Year gifts distribution" class="news-image">
+            </div>
+
+            <div class="news-item">
+                <div class="news-content">[2025-10-29] Our research, entitled <a href="https://www.sciencedirect.com/science/article/pii/S2352304225004003?via%3Dihub" class="news-link" target="_blank">The molecular and immune landscape of the forkhead-box gene family in different subtypes of breast cancer</a> has been published in Genes & Diseases. Congratulations to all co-authors!</div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-content">[2025-10-07] All members of our lab attended the CCBSB 2025 conference, and Jiale's poster was successfully accepted for presentation.</div>
+                <img src="image/home6.jpg" alt="CCBSB 2025 conference" class="news-image">
+            </div>
+
+            <div class="news-item">
+                <div class="news-content">[2025-09-03] Jiale's paper <a href="https://onlinelibrary.wiley.com/doi/10.1111/cas.70178" class="news-link" target="_blank">Integrative Transcriptomic Analysis Decodes the Interplay Between Aging, Senescence, and Cancer</a> has been published in Cancer Science. Congratulations to Jiale and all co-authors!</div>
+                <img src="image/home1.png" alt="Research paper publication" class="news-image">
+            </div>
+
+            <div class="news-item">
+                <div class="news-content">[2025-08-27] A big welcome to our new graduate students: Riyang Xing, Kexin Yang, Liqi Chen, and Qiwen Wu! We're excited to have you on the team and look forward to achieving great things together.</div>
+            </div>
+
+            <div class="more-link">
+                <a href="labnews.html">More lab news...</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部区域 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="copyright">
+                <p>© 2025 DBlab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
