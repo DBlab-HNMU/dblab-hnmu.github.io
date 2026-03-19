@@ -50,7 +50,7 @@ body {
     width: 100%;
     margin: 0 auto 20px auto;
     overflow: hidden;
-    height: 500px;
+    height: 650px;
 }
 
 .slideshow-slide {
@@ -119,13 +119,13 @@ body {
 /* 响应式调整 */
 @media (max-width: 768px) {
     .slideshow-container {
-        height: 400px;
+        height: 550px;
     }
 }
 
 @media (max-width: 480px) {
     .slideshow-container {
-        height: 300px;
+        height: 450px;
     }
 }
 
@@ -137,7 +137,7 @@ body {
     top: 0;
     z-index: 100;
     box-shadow: none;
-    width: 80%;
+    width: 58%;
     margin: 0 auto;
     border-radius: 0;
 }
@@ -160,7 +160,7 @@ body {
 }
 
 .logo {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: bold;
     color: var(--c3);
     flex: 0 0 auto;
@@ -169,7 +169,7 @@ body {
 .logo-link {
     color: var(--c1);
     text-decoration: none;
-    font-size: 42px;
+    font-size: 36px;
     font-weight: bold;
     letter-spacing: 0.03em;
     font-family: inherit;
@@ -183,7 +183,7 @@ body {
 
 .logo-text {
     color: var(--c1);
-    font-size: 42px;
+    font-size: 36px;
     font-weight: bold;
     letter-spacing: 0.03em;
     font-family: inherit;
@@ -201,7 +201,7 @@ body {
     margin-left: 10px;
     text-decoration: none;
     color: var(--c2);
-    font-size: 23px;
+    font-size: 20px;
     font-weight: bold;
     padding: 7px 15px;
     border-radius: 4px;
@@ -244,15 +244,15 @@ body {
 }
 
 .search-box input {
-    padding: 10px 16px;
+    padding: 8px 12px;
     border: 1px solid #bfc9d1;
     border-radius: 4px 0 0 4px;
-    width: 200px;
-    font-size: 22px;
+    width: 160px;
+    font-size: 16px;
     background: #f5f7fa;
     font-family: inherit;
     transition: border 0.2s;
-    height: 36px;
+    height: 32px;
     box-sizing: border-box;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     outline: none;
@@ -264,18 +264,18 @@ body {
 }
 
 .search-box button {
-    padding: 0 28px;
+    padding: 0 20px;
     background-color: var(--c1);
     color: #fff;
     border: none;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 16px;
     transition: background 0.2s;
-    height: 36px;
+    height: 32px;
     box-sizing: border-box;
-    line-height: 36px;
+    line-height: 32px;
     display: inline-block;
 }
 
@@ -306,7 +306,7 @@ body {
 
 /* 主内容区域 */
 .main-content {
-    width: 80%;
+    width: 58%;
     margin: 16px auto;
     background-color: #fafbfc;
     min-height: 0;
@@ -369,7 +369,7 @@ body {
     color: var(--h1);
     padding: 10px 0;
     text-align: center;
-    width: 80%;
+    width: 58%;
     margin: 0 auto;
     border-radius: 0;
     font-family: inherit;
@@ -574,6 +574,7 @@ body {
     gap: 30px;
     margin: 0 auto;
     align-items: stretch;
+    width: 100%;
 }
 
 .contact-main > .contact-grid {
@@ -946,12 +947,12 @@ body {
 @media (max-width: 1024px) {
     /* 调整布局宽度 */
     .header, .main-content, .footer {
-        width: 90%;
+        width: 80%;
     }
     
     /* 减小字体大小 */
     .logo, .logo-link, .logo-text {
-        font-size: 38px;
+        font-size: 32px;
     }
     
     .nav a {
