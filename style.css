@@ -428,7 +428,7 @@ body {
 }
 
 .lab-news h1 {
-    font-size: 28px; /* 与全局h1保持一致 */
+    font-size: 26px;
     color: var(--h1);
     margin-bottom: 20px;
     font-weight: 700;
@@ -512,7 +512,7 @@ body {
 
 /* Contact Us标题样式 */
 .contact-section h1 {
-    font-size: 28px;
+    font-size: 26px;
     color: var(--h1);
     margin-bottom: 28px;
     font-weight: 700;
@@ -677,7 +677,7 @@ body {
 
 /* 人员页面特定样式 */
 .people-section h1 {
-    font-size: 28px;
+    font-size: 26px;
     color: var(--h1);
     margin-bottom: 30px;
     font-weight: 700;
@@ -784,7 +784,7 @@ body {
 
 /* 统一的标题样式 - 适用于所有h1和.section-title */
 .section-title, h1 {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 700;
     color: var(--h1);
     margin-bottom: 30px;
@@ -1079,7 +1079,7 @@ body {
     }
     
     .section-title, h1 {
-        font-size: 20px;
+        font-size: 26px;
         text-align: center;
     }
     
