@@ -22,8 +22,7 @@ function setActiveNavigation() {
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
         if (currentPage === linkPage ||
-            (currentPage === '' && linkPage === 'index.html') ||
-            (currentPage === linkPage)) {
+            (currentPage === '' && linkPage === 'index.html')) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');

@@ -784,7 +784,7 @@ body {
 
 /* 统一的标题样式 - 适用于所有h1和.section-title */
 .section-title, h1 {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--h1);
     margin-bottom: 30px;
