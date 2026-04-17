@@ -699,7 +699,7 @@ body {
     width: 100%;
 }
 
-/* Graduate Students部分的特殊布局 - 两排显示 */
+/* Graduate Students部分的特殊布局 */
 .team-group:nth-child(3) .team-members {
     display: flex;
     flex-direction: row;
@@ -709,15 +709,14 @@ body {
     gap: 15px;
 }
 
-/* Graduate Students的前两个成员（第一排） */
-.team-group:nth-child(3) .team-members .person-item:nth-child(-n+2) {
+/* Graduate Students第一行（Jiale Cai） */
+.team-group:nth-child(3) .team-members:first-child .person-item {
     width: calc(35% - 10px);
-    margin-bottom: 15px;
 }
 
-/* Graduate Students的后三个成员（第二排） */
-.team-group:nth-child(3) .team-members .person-item:nth-child(n+3) {
-    width: calc(33.333% - 10px);
+/* Graduate Students第二行和第三行（四个Master Student一行） */
+.team-group:nth-child(3) .team-members:not(:first-child) .person-item {
+    width: calc(25% - 12px);
 }
 
 /* 确保每一行都居中对齐 */
